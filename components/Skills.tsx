@@ -110,20 +110,20 @@ const Skills = () => {
         </div>
 
         {/* Categorized Skills Boxes */}
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
           {tabs.map((tab) => (
-            <div key={tab} className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-4">
-              <h3 className="text-base font-bold text-black dark:text-white mb-3">{tab}</h3>
-              <ul className="space-y-1 mb-3">
+            <div key={tab} className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-3">
+              <h3 className="text-sm md:text-base font-bold text-black dark:text-white mb-2">{tab}</h3>
+              <ul className="space-y-1 mb-2">
                 {importantSkillsData[tab as keyof typeof importantSkillsData].skills.map((skill, idx) => (
-                  <li key={idx} className="text-sm text-gray-800 dark:text-gray-200 font-medium">
+                  <li key={idx} className="text-xs md:text-sm text-gray-800 dark:text-gray-200 font-medium">
                     {skill.name}
                   </li>
                 ))}
               </ul>
               <div className="flex flex-wrap gap-1">
                 {importantSkillsData[tab as keyof typeof importantSkillsData].technologies.map((tech, idx) => (
-                  <span key={idx} className="text-xs bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded font-normal">
+                  <span key={idx} className="text-xs bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-1.5 py-0.5 rounded font-normal">
                     {tech}
                   </span>
                   ))}

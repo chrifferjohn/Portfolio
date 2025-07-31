@@ -172,44 +172,44 @@ const Testimonials = () => {
 
         {/* Testimonials Carousel */}
         <div className="relative max-w-7xl mx-auto mb-16">
-          <div className="overflow-hidden rounded-3xl">
+          <div className="overflow-hidden rounded-2xl">
             <div 
-              className="flex transition-transform duration-500 ease-in-out gap-6"
-              style={{ transform: `translateX(-${currentSlide * 33.33}%)` }}
+              className="flex transition-transform duration-500 ease-in-out gap-3 md:gap-4"
+              style={{ transform: `translateX(-${currentSlide * 25}%)` }}
             >
               {testimonialList.map((testimonial: any, index: number) => (
                 <div 
                   key={index}
-                  className="w-full md:w-1/2 lg:w-1/3 flex-shrink-0"
+                  className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 flex-shrink-0"
                 >
-                  <div className="modern-card bg-white dark:bg-gray-800 p-8 rounded-3xl hover-lift h-full">
+                  <div className="modern-card bg-white dark:bg-gray-800 p-4 md:p-5 rounded-2xl hover-lift h-full">
                     {/* Quote Icon */}
-                    <div className="flex justify-center mb-4">
-                      <div className="w-12 h-12 bg-gray-800 dark:bg-gray-200 rounded-2xl flex items-center justify-center text-white shadow-lg">
-                        <FaQuoteLeft size={18} className="text-black dark:text-gray-900" />
+                    <div className="flex justify-center mb-3">
+                      <div className="w-8 h-8 md:w-10 md:h-10 bg-gray-800 dark:bg-gray-200 rounded-xl flex items-center justify-center text-white shadow-lg">
+                        <FaQuoteLeft size={12} className="text-black dark:text-gray-900" />
                       </div>
                     </div>
 
                     {/* Rating */}
-                    <div className="flex justify-center mb-4">
+                    <div className="flex justify-center mb-3">
                       {[...Array(5)].map((_, i) => (
-                        <FaStar key={i} size={16} className={i < testimonial.rating ? 'text-yellow-400' : 'text-gray-400'} />
+                        <FaStar key={i} size={12} className={i < testimonial.rating ? 'text-yellow-400' : 'text-gray-400'} />
                       ))}
                     </div>
 
                     {/* Content */}
-                    <p className="text-gray-800 dark:text-gray-200 mb-6 leading-relaxed text-base text-center">
-                      "{testimonial.content}"
+                    <p className="text-gray-800 dark:text-gray-200 mb-4 leading-relaxed text-xs md:text-sm text-center line-clamp-4">
+                      "{testimonial.content.length > 120 ? testimonial.content.substring(0, 120) + '...' : testimonial.content}"
                     </p>
 
                     {/* Author */}
                     <div className="flex items-center justify-center mt-auto">
-                      <div className="w-12 h-12 bg-gray-200 dark:bg-gray-800 rounded-full flex items-center justify-center mr-3 shadow-lg overflow-hidden text-2xl text-black dark:text-white">
+                      <div className="w-8 h-8 md:w-10 md:h-10 bg-gray-200 dark:bg-gray-800 rounded-full flex items-center justify-center mr-2 shadow-lg overflow-hidden text-lg md:text-xl text-black dark:text-white">
                         {testimonial.image}
                       </div>
                       <div className="text-center">
-                        <h4 className="font-bold text-black dark:text-white text-lg">{testimonial.name}</h4>
-                        <p className="text-gray-600 dark:text-gray-400 font-medium text-sm">{testimonial.position}</p>
+                        <h4 className="font-bold text-black dark:text-white text-xs md:text-sm leading-tight">{testimonial.name}</h4>
+                        <p className="text-gray-600 dark:text-gray-400 font-medium text-xs">{testimonial.position}</p>
                       </div>
                     </div>
                   </div>
@@ -351,22 +351,22 @@ const Testimonials = () => {
         )}
 
         {/* Stats */}
-        <div className="grid md:grid-cols-4 gap-8">
-          <div className="text-center bg-white dark:bg-gray-800 p-6 rounded-2xl border border-gray-200 dark:border-gray-700">
-            <div className="text-4xl font-bold text-black dark:text-white mb-2">100%</div>
-            <div className="text-gray-800 dark:text-gray-200 font-medium">Client Satisfaction</div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-6">
+          <div className="text-center bg-white dark:bg-gray-800 p-3 md:p-4 rounded-xl border border-gray-200 dark:border-gray-700">
+            <div className="text-2xl md:text-3xl font-bold text-black dark:text-white mb-1">100%</div>
+            <div className="text-gray-800 dark:text-gray-200 font-medium text-xs md:text-sm">Client Satisfaction</div>
           </div>
-          <div className="text-center bg-white dark:bg-gray-800 p-6 rounded-2xl border border-gray-200 dark:border-gray-700">
-            <div className="text-4xl font-bold text-black dark:text-white mb-2">50+</div>
-            <div className="text-gray-800 dark:text-gray-200 font-medium">Projects Completed</div>
+          <div className="text-center bg-white dark:bg-gray-800 p-3 md:p-4 rounded-xl border border-gray-200 dark:border-gray-700">
+            <div className="text-2xl md:text-3xl font-bold text-black dark:text-white mb-1">50+</div>
+            <div className="text-gray-800 dark:text-gray-200 font-medium text-xs md:text-sm">Projects Completed</div>
           </div>
-          <div className="text-center bg-white dark:bg-gray-800 p-6 rounded-2xl border border-gray-200 dark:border-gray-700">
-            <div className="text-4xl font-bold text-black dark:text-white mb-2">30+</div>
-            <div className="text-gray-800 dark:text-gray-200 font-medium">Happy Clients</div>
+          <div className="text-center bg-white dark:bg-gray-800 p-3 md:p-4 rounded-xl border border-gray-200 dark:border-gray-700">
+            <div className="text-2xl md:text-3xl font-bold text-black dark:text-white mb-1">30+</div>
+            <div className="text-gray-800 dark:text-gray-200 font-medium text-xs md:text-sm">Happy Clients</div>
           </div>
-          <div className="text-center bg-white dark:bg-gray-800 p-6 rounded-2xl border border-gray-200 dark:border-gray-700">
-            <div className="text-4xl font-bold text-black dark:text-white mb-2">5.0</div>
-            <div className="text-gray-800 dark:text-gray-200 font-medium">Average Rating</div>
+          <div className="text-center bg-white dark:bg-gray-800 p-3 md:p-4 rounded-xl border border-gray-200 dark:border-gray-700">
+            <div className="text-2xl md:text-3xl font-bold text-black dark:text-white mb-1">5.0</div>
+            <div className="text-gray-800 dark:text-gray-200 font-medium text-xs md:text-sm">Average Rating</div>
           </div>
         </div>
       </div>

@@ -172,15 +172,15 @@ const Projects = () => {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 max-w-7xl mx-auto">
           {currentProjects.map((project: any, index: number) => (
             <Link
               key={index}
               href={`/projects/${slugify(project.title)}`}
-              className="group bg-white dark:bg-gray-800 rounded-3xl hover-lift relative overflow-hidden border border-gray-200 dark:border-gray-700 block transition-transform duration-300 hover:scale-105"
+              className="group bg-white dark:bg-gray-800 rounded-2xl hover-lift relative overflow-hidden border border-gray-200 dark:border-gray-700 block transition-transform duration-300 hover:scale-105"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="relative h-48 overflow-hidden rounded-t-3xl">
+              <div className="relative h-32 md:h-36 overflow-hidden rounded-t-2xl">
                 <img 
                   src={project.image} 
                   alt={project.title}
@@ -189,21 +189,24 @@ const Projects = () => {
                 {/* View Button on hover */}
                 <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-0 group-hover:bg-opacity-60 transition-all duration-300">
                   <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <span className="inline-block px-6 py-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-semibold rounded-xl shadow-lg cursor-pointer">View</span>
+                    <span className="inline-block px-3 py-1 bg-gradient-to-r from-purple-600 to-blue-600 text-white text-sm font-semibold rounded-lg shadow-lg cursor-pointer">View</span>
                   </span>
                 </div>
               </div>
-              <div className="relative p-6">
-                <h3 className="text-xl font-bold text-black dark:text-white text-center">
+              <div className="relative p-3 md:p-4">
+                <h3 className="text-sm md:text-base font-bold text-black dark:text-white text-center leading-tight mb-2">
                   {project.title}
                 </h3>
                 {/* Tech stack under project title */}
-                <div className="flex flex-wrap justify-center gap-2 mt-2">
-                                      {project.technologies.map((tech: string, idx: number) => (
-                    <span key={idx} className="text-xs bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-2 py-0.5 rounded font-normal">
+                <div className="flex flex-wrap justify-center gap-1">
+                                      {project.technologies.slice(0, 3).map((tech: string, idx: number) => (
+                    <span key={idx} className="text-xs bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 px-1.5 py-0.5 rounded font-normal">
                       {tech}
                     </span>
                   ))}
+                  {project.technologies.length > 3 && (
+                    <span className="text-xs text-gray-500 dark:text-gray-400">+{project.technologies.length - 3}</span>
+                  )}
                 </div>
               </div>
             </Link>

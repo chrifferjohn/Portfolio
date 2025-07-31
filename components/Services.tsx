@@ -75,19 +75,17 @@ const Services = () => {
         </div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6 max-w-7xl mx-auto">
           {services.map((service, index) => (
             <div 
               key={index}
-              className="group modern-card bg-white dark:bg-gray-800 p-8 rounded-3xl hover-lift relative overflow-hidden"
+              className="group modern-card bg-white dark:bg-gray-800 p-4 md:p-5 rounded-2xl hover-lift relative overflow-hidden"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              {/* Removed gradient background as service.gradient does not exist */}
-              
               {/* Icon with gradient background */}
-              <div className="relative mb-6">
-                <div className="w-20 h-20 bg-white dark:bg-black border border-gray-300 dark:border-gray-700 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                  <div className="text-black dark:text-white">
+              <div className="relative mb-3">
+                <div className="w-12 h-12 md:w-14 md:h-14 bg-white dark:bg-black border border-gray-300 dark:border-gray-700 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <div className="text-black dark:text-white text-lg md:text-xl">
                     {service.icon}
                   </div>
                 </div>
@@ -95,20 +93,20 @@ const Services = () => {
 
               {/* Content */}
               <div className="relative">
-                <h3 className="text-2xl font-bold text-black dark:text-white mb-4 group-hover:text-purple-700 dark:group-hover:text-purple-400 transition-colors duration-300">
+                <h3 className="text-base md:text-lg font-bold text-black dark:text-white mb-2 group-hover:text-purple-700 dark:group-hover:text-purple-400 transition-colors duration-300 leading-tight">
                   {service.title}
                 </h3>
                 
-                <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed text-lg">
+                <p className="text-gray-600 dark:text-gray-300 mb-3 leading-relaxed text-xs md:text-sm">
                   {service.description}
                 </p>
 
                 {/* Technologies */}
-                <div className="space-y-3">
+                <div className="space-y-2">
                   {service.features.map((feature, featureIndex) => (
                     <div key={featureIndex} className="flex items-start">
-                      <div className="w-3 h-3 bg-gray-400 rounded-full mr-4 mt-2 flex-shrink-0"></div>
-                      <span className="text-gray-700 dark:text-gray-300 font-medium">{feature}</span>
+                      <div className="w-2 h-2 bg-gray-400 rounded-full mr-2 mt-1.5 flex-shrink-0"></div>
+                      <span className="text-gray-700 dark:text-gray-300 text-xs md:text-sm font-medium">{feature}</span>
                     </div>
                   ))}
                 </div>

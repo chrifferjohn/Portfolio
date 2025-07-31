@@ -93,25 +93,30 @@ const Experience = () => {
         <div className="grid lg:grid-cols-2 gap-12">
           <div>
             <h3 className="text-2xl font-semibold text-black dark:text-white mb-8">Work Experience</h3>
-            <div className="space-y-8">
+            <div className="space-y-4">
               {experience.map((job, index) => (
-                <div key={index} className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700">
-                  <div className="flex justify-between items-start mb-4">
-                    <div>
-                      <h4 className="text-xl font-semibold text-black dark:text-white">{job.title}</h4>
-                      <p className="text-blue-600 font-medium">{job.company}</p>
+                <div key={index} className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-3">
+                    <div className="mb-2 sm:mb-0">
+                      <h4 className="text-base md:text-lg font-semibold text-black dark:text-white">{job.title}</h4>
+                      <p className="text-blue-600 font-medium text-sm">{job.company}</p>
                     </div>
-                    <span className="text-sm text-gray-600 dark:text-gray-300 bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded-full">
+                    <span className="text-xs text-gray-600 dark:text-gray-300 bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded-full w-fit">
                       {job.period}
                     </span>
                   </div>
-                  <ul className="space-y-2">
-                    {job.achievements.map((achievement, achievementIndex) => (
-                      <li key={achievementIndex} className="flex items-center text-sm text-gray-600 dark:text-gray-300">
-                        <div className="w-2 h-2 bg-black dark:bg-white rounded-full mr-3"></div>
+                  <ul className="space-y-1">
+                    {job.achievements.slice(0, 4).map((achievement, achievementIndex) => (
+                      <li key={achievementIndex} className="flex items-start text-xs md:text-sm text-gray-600 dark:text-gray-300">
+                        <div className="w-1.5 h-1.5 bg-black dark:bg-white rounded-full mr-2 mt-1.5 flex-shrink-0"></div>
                         {achievement}
                       </li>
                     ))}
+                    {job.achievements.length > 4 && (
+                      <li className="text-xs text-gray-500 dark:text-gray-400 ml-3">
+                        +{job.achievements.length - 4} more achievements
+                      </li>
+                    )}
                   </ul>
                 </div>
               ))}
@@ -120,19 +125,19 @@ const Experience = () => {
 
           <div>
             <h3 className="text-2xl font-semibold text-black dark:text-white mb-8">Education</h3>
-            <div className="space-y-8">
+            <div className="space-y-4">
               {education.map((edu, index) => (
-                <div key={index} className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700">
-                  <div className="flex justify-between items-start mb-4">
-                    <div>
-                      <h4 className="text-xl font-semibold text-black dark:text-white">{edu.degree}</h4>
-                      <p className="text-blue-600 font-medium">{edu.school}</p>
+                <div key={index} className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-3">
+                    <div className="mb-2 sm:mb-0">
+                      <h4 className="text-base md:text-lg font-semibold text-black dark:text-white">{edu.degree}</h4>
+                      <p className="text-blue-600 font-medium text-sm">{edu.school}</p>
                     </div>
-                    <span className="text-sm text-gray-600 dark:text-gray-300 bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded-full">
+                    <span className="text-xs text-gray-600 dark:text-gray-300 bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded-full w-fit">
                       {edu.period}
                     </span>
                   </div>
-                  <p className="text-gray-600 dark:text-gray-300 mb-2 leading-relaxed">
+                  <p className="text-gray-600 dark:text-gray-300 text-xs md:text-sm leading-relaxed">
                     {edu.description}
                   </p>
                 </div>
@@ -141,19 +146,19 @@ const Experience = () => {
 
             <div className="mt-12">
               <h3 className="text-2xl font-semibold text-black dark:text-white mb-8">Certifications</h3>
-              <div className="space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {certifications.map((cert, index) => (
                   <div
                     key={index}
-                    className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer hover:shadow-lg transition-all duration-300"
+                    className="bg-white dark:bg-gray-800 p-3 rounded-lg shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer hover:shadow-lg transition-all duration-300"
                     onClick={() => setSelectedCert(cert as Certification)}
                   >
-                    <div className="flex justify-between items-center">
-                      <div>
-                        <h4 className="font-semibold text-black dark:text-white">{cert.name}</h4>
-                        <p className="text-sm text-gray-600 dark:text-gray-300">{cert.issuer}</p>
+                    <div className="flex flex-col">
+                      <div className="mb-2">
+                        <h4 className="font-semibold text-black dark:text-white text-sm leading-tight">{cert.name}</h4>
+                        <p className="text-xs text-gray-600 dark:text-gray-300">{cert.issuer}</p>
                       </div>
-                      <span className="text-sm text-gray-600 dark:text-gray-300 bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded-full">
+                      <span className="text-xs text-gray-600 dark:text-gray-300 bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded-full w-fit">
                         {cert.year}
                       </span>
                     </div>

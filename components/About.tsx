@@ -21,7 +21,7 @@ const About = () => {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
             {/* About Image on the left */}
             <div className="text-center lg:text-left order-2 lg:order-1 fade-in">
               <div className="relative inline-block">
@@ -29,22 +29,22 @@ const About = () => {
                 <img 
                   src="/about.png" 
                   alt="Chriffer John Langomes - About Me" 
-                  className="relative w-full h-[600px] mx-auto lg:mx-0 rounded-3xl object-cover transition-transform duration-300 hover:scale-105 shadow-lg border border-gray-300 dark:border-gray-700"
+                  className="relative w-full h-[300px] md:h-[400px] lg:h-[450px] mx-auto lg:mx-0 rounded-2xl object-cover transition-transform duration-300 hover:scale-105 shadow-lg border border-gray-300 dark:border-gray-700"
                 />
               </div>
             </div>
 
             {/* About Content */}
-            <div className="space-y-8 order-1 lg:order-2 slide-up">
-              <div className="space-y-4">
-                <h3 className="text-4xl font-bold text-black dark:text-white">
+            <div className="space-y-6 order-1 lg:order-2 slide-up">
+              <div className="space-y-3">
+                <h3 className="text-2xl md:text-3xl font-bold text-black dark:text-white">
                   Chriffer John <span>Langomes</span>
                 </h3>
-                <h4 className="text-2xl font-semibold text-gray-800 dark:text-gray-200">Who am I?</h4>
+                <h4 className="text-lg md:text-xl font-semibold text-gray-800 dark:text-gray-200">Who am I?</h4>
               </div>
 
-              <div className="text-lg text-gray-800 dark:text-gray-200 leading-relaxed">
-                <div className="bg-white dark:bg-gray-900 p-8 rounded-3xl space-y-6 border border-gray-200 dark:border-gray-700">
+              <div className="text-sm md:text-base text-gray-800 dark:text-gray-200 leading-relaxed">
+                <div className="bg-white dark:bg-gray-900 p-4 md:p-6 rounded-2xl space-y-4 border border-gray-200 dark:border-gray-700">
                   <p>
                     I aim to be a <span className="font-semibold text-black dark:text-white">Junior Software Developer</span> and have prior experience in web and mobile development. My internship with the <span className="font-semibold text-black dark:text-white">JHCSC Library</span> helped me polish my PHP, MySQL, JavaScript, and React Native skills as I worked on real world problems such as a Library Inventory System and a Library Book QR Code Scanner App.
                   </p>
@@ -58,28 +58,28 @@ const About = () => {
               </div>
 
               {/* Personal Info Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 mt-6">
                 {[
                   { label: 'Name', value: 'Chriffer John Langomes' },
                   { label: 'Email', value: 'langomezchriff795@gmail.com' },
                   { label: 'Location', value: 'Dagohoy, Guipos Zamboanga Del sur' },
                   { label: 'Availability', value: 'Open to opportunities' }
                 ].map((item, index) => (
-                  <div key={index} className="bg-white dark:bg-gray-900 p-6 rounded-2xl border border-gray-200 dark:border-gray-700">
-                    <span className="block text-sm font-medium text-gray-600 dark:text-gray-400 mb-2 uppercase tracking-wider">{item.label}</span>
-                    <span className="block text-black dark:text-white font-semibold text-lg">{item.value}</span>
+                  <div key={index} className="bg-white dark:bg-gray-900 p-3 md:p-4 rounded-xl border border-gray-200 dark:border-gray-700">
+                    <span className="block text-xs font-medium text-gray-600 dark:text-gray-400 mb-1 uppercase tracking-wider">{item.label}</span>
+                    <span className="block text-black dark:text-white font-semibold text-sm md:text-base break-all">{item.value}</span>
                   </div>
                 ))}
               </div>
 
               {/* Download Resume Button */}
-              <div className="mt-12">
+              <div className="mt-6">
                 <a
                   href="/Chrifferjohn_Langomes_resume.pdf"
-                  className="inline-flex items-center gap-3 bg-black text-white px-10 py-4 rounded-2xl font-semibold hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+                  className="inline-flex items-center gap-2 bg-black text-white px-6 py-3 rounded-xl font-semibold hover:shadow-2xl transition-all duration-300 transform hover:scale-105 text-sm md:text-base"
                   download
                 >
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clipRule="evenodd" />
                   </svg>
                   Download Resume
